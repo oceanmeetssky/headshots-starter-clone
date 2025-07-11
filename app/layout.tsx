@@ -7,6 +7,7 @@ import AnnouncementBar from "@/components/homepage/announcement-bar"
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/homepage/theme-provider"
 import { validateConfig } from "@/lib/config";
+import Script from "next/script";
 
 // Validate configuration at app initialization
 validateConfig();
@@ -29,15 +30,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX2QY9SF46"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-HX2QY9SF46');
-        </script>
       <body className="min-h-screen flex flex-col bg-background">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AnnouncementBar />
@@ -52,6 +44,15 @@ export default function RootLayout({
             <Navbar />
           </Suspense>
           <main className="flex-1">
+            <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX2QY9SF46"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-HX2QY9SF46');
+            </script>
             {children}
           </main>
           <Footer />
