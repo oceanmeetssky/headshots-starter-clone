@@ -44,15 +44,6 @@ export default function RootLayout({
             <Navbar />
           </Suspense>
           <main className="flex-1">
-            <!-- Google tag (gtag.js) -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX2QY9SF46"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-            
-              gtag('config', 'G-HX2QY9SF46');
-            </script>
             {children}
           </main>
           <Footer />
